@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluación de Notas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        input[type="number"] { width: 100px; }
+        label { font-weight: bold; }
+        .resultado { margin-top: 20px; font-size: 1.2em; }
+        .aprobado { color: green; }
+        .reprobado { color: red; }
+    </style>
+</head>
+<body>
+<h2>Formulario de Evaluación</h2>
+<form method="POST" action="">
+    <label for="num1">Nota 1:</label><br>
+    <input type="number" id="num1" name="num1" value="{{ nota1 if nota1 is defined else '' }}"><br>
+
+    <label for="num2">Nota 2:</label><br>
+    <input type="number" id="num2" name="num2" value="{{ nota2 if nota2 is defined else '' }}"><br>
+
+    <label for="num3">Nota 3:</label><br>
+    <input type="number" id="num3" name="num3" value="{{ nota3 if nota3 is defined else '' }}"><br>
+
+    <label for="Asistencia">Asistencia (%):</label><br>
+    <input type="number" id="Asistencia" name="Asistencia" value="{{ asistencia if asistencia is defined else '' }}"><br><br>
+
+    <input type="submit" value="Enviar">
+</form>
+
+{% if nom %}
+    <div class="resultado {% if nom == 'Aprobado' %}aprobado{% else %}reprobado{% endif %}">
+        <p><strong>Resultado:</strong> {{ nom }}</p>
+        <p><strong>Promedio:</strong> {{ promedio }}</p>
+    </div>
+{% endif %}
+</body>
+</html>
+
+
